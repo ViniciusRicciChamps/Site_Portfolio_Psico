@@ -1,0 +1,23 @@
+@font-face {
+    font-family: fonteTextoHeader;
+    src: url(Darleston.otf);
+}
+
+p{
+    font-family: fonteTextoHeader;
+    font-size: 40px;
+    color: black;
+} 
+
+.img_logo{
+    vertical-align: baseline;
+}
+
+#id_charles{
+    color: black;
+}
+
+#img_central{
+    opacity: 0.2;
+
+}
