@@ -12,18 +12,18 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
   $sexoPaciente = $_POST["generoSessao"];
 
 
-  if ( empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) &&
-    empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente)) {
-      
-      echo "Campo vazio";
+  if (
+    empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) &&
+    empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente)
+  ) {
 
-
-  }else{
-      include("validarBancoDados.php");
-
+    echo "<div class='alert alert-danger' role='alert'>
+    Preencher os campos
+  </div>";
+  } else {
+    $flag = include("validarBancoDados.php");
+    echo $flag;
   }
-
-
 }
 
 
@@ -165,7 +165,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
 
 
 
-    <form action="?validar=true" method="post">
+    <form action="upload.php" method="post" enctype="multipart/form-data>
       <fieldset>
         <div class="form-group row">
           <div class="w-50 col-6">
@@ -198,7 +198,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
             <div class="form-check">
               <div class="form-group">
 
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" id="formFile" name="formFile">
                 <label for="formFile" class="form-label"> <STRong>Upload do encaminhamento. Formatos aceitos JPEG, PNG,
                     PDF.</STRong> </label>
               </div>
