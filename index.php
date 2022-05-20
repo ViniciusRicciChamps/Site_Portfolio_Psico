@@ -1,36 +1,6 @@
 <?php
 
 
-if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
-
-  $nomePaciente = $_POST["nomeAgendarSessao"];
-  $emailPaciente = $_POST["emailAgendarSessao"];
-  $idadePaciente = $_POST["idadeAgendarSessao"];
-  $telefonePaciente = $_POST["telefoneAgendarSessao"];
-  $dataNascPaciente = $_POST["nascimentoAgendarSessao"];
-  $dataAgendamentoPaciente = $_POST["dataAgendarSessao"];
-  $sexoPaciente = $_POST["generoSessao"];
-
-
-  if (
-    empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) &&
-    empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente) && empty($nomePaciente)
-  ) {
-
-    echo "<div class='alert alert-danger' role='alert'>
-    Preencher os campos
-  </div>";
-  } else {
-    $flag = include("validarBancoDados.php");
-    echo $flag;
-  }
-}
-
-
-
-
-
-
 
 ?>
 
@@ -46,6 +16,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
 
   <link rel="stylesheet" href="style.css" />
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -57,7 +28,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -78,13 +49,16 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
           mt-3
         ">
       <div class="container-fluid d-inline border-top-0">
-        <img src="img/brain.png" class="img_logo" alt="" />
+
+
+        <img src="img/Logo Edlaine Ricci fundo verde-branco.png" style="width:270px;height:270px;" class="img_logo" alt="" />
+        <!--
         <a class="navbar-brand" href="#">
           <p class="">
             Dra. Edlaine <br />
             Ferreira da C. Ricci
           </p>
-        </a>
+        </a> -->
       </div>
     </nav>
     <nav class="
@@ -136,14 +110,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
 
     <div class="carousel-inner mt-3 w-50">
       <div class="carousel-item active">
-        <img src="img/4197854.jpg" alt="Los Angeles" class="d-block w-100 mx-auto rounded opacity-25" />
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="h6 text-dark">
-            “O nosso cérebro é o melhor brinquedo já criado: <br />
-            nele se encontram todos os segredos, inclusive o da felicidade.”
-          </h2>
-          <h3 class="h3" id="id_charles">Charles Chaplin</h3>
-        </div>
+        <img src="img/Logo Edlaine Ricci -  Larissa Ricci 15-05-2021 (1).png" alt="Los Angeles" class="d-block w-100 mx-auto rounded " />
       </div>
       <div class="carousel-item">
         <img src="img/10198642.jpg" alt="Chicago" class="d-block w-100 mx-auto rounded" />
@@ -165,7 +132,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
 
 
 
-    <form action="upload.php" method="post" enctype="multipart/form-data>
+    <form action="" method="POST" enctype="multipart/form-data">
       <fieldset>
         <div class="form-group row">
           <div class="w-50 col-6">
@@ -197,7 +164,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
           <div class="">
             <div class="form-check">
               <div class="form-group">
-
+              <label for="formFile" class="form-label">Faça o upload de um arquivo caso tenha encaminhamento</label>
                 <input class="form-control" type="file" id="formFile" name="formFile">
                 <label for="formFile" class="form-label"> <STRong>Upload do encaminhamento. Formatos aceitos JPEG, PNG,
                     PDF.</STRong> </label>
@@ -214,7 +181,7 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
           </div>
         </div>
         <div class="container">
-          <input type="submit" value="Agendar" name="botaoAgendar" id="botaoAgendar" class="btn btn-success mb-2">
+          <input type="button" value="Agendar" name="submit" id="botaoAgendar" class="btn btn-success mb-2">
           <div class="alert alert-dismissible alert-secondary" id="alerta">
             <strong id="strongTextoAlerta">Preencha os campos!</strong>
           </div>
@@ -313,8 +280,11 @@ if (isset($_REQUEST["validar"]) && $_REQUEST["validar"] == true) {
     </div>
     <!-- Copyright -->
   </footer>
+</body>
+<script src="js/script.js">
+  
 
-  <script src="js/script.js"></script>
+</script>
 
 
 </html>
